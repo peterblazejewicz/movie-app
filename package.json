@@ -3,27 +3,61 @@
   "version": "1.0.0",
   "description": "Movie App",
   "scripts": {
-    "test": "karma start karma.conf.js",
-    "start": "serve src/ -s"
+    "clean:vendor": "rimraf src/vendor",
+    "clean": "npm-run-all clean:*",
+    "copy:vendor": "vendor-copy",
+    "copy": "npm-run-all copy:*",
+    "postinstall": "npm-run-all clean:vendor copy:vendor",
+    "start": "serve src/ -s",
+    "test": "karma start karma.conf.js"
   },
   "keywords": [
     "movies"
   ],
   "devDependencies": {
+    "angular-mocks": "^1.5.9",
     "jasmine-core": "^2.3.4",
     "karma": "^2.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.1",
     "karma-phantomjs-launcher": "^1.0.4",
+    "npm-run-all": "^4.1.2",
     "phantomjs": "2.1.7",
-    "serve": "^6.5.0"
+    "rimraf": "^2.6.2",
+    "serve": "^6.5.0",
+    "vendor-copy": "^1.3.1"
   },
   "dependencies": {
     "angular": "^1.5.9",
-    "angular-mocks": "^1.5.9",
     "angular-resource": "^1.5.9",
     "angular-route": "^1.5.9",
     "angular-ui-bootstrap": "^2.5.6",
     "bootstrap": "^3.3.7"
-  }
+  },
+  "vendorCopy": [
+    {
+      "from": "node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "to": "src/vendor/css/bootstrap.min.css"
+    },
+    {
+      "from": "node_modules/angular/angular.js",
+      "to": "src/vendor/js/angular.js"
+    },
+    {
+      "from": "node_modules/angular-route/angular-route.js",
+      "to": "src/vendor/js/angular-route.js"
+    },
+    {
+      "from": "node_modules/angular-resource/angular-resource.js",
+      "to": "src/vendor/js/angular-resource.js"
+    },
+    {
+      "from": "node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js",
+      "to": "src/vendor/js/ui-bootstrap-tpls.js"
+    },
+    {
+      "from": "node_modules/angular-mocks/angular-mocks.js",
+      "to": "src/vendor/js/angular-mocks.js"
+    }
+  ]
 }
