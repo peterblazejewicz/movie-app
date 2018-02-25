@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Movie App",
   "scripts": {
-    "test": "karma start karma.conf.js"
+    "test": "karma start karma.conf.js",
+    "start": "serve src/ -s"
   },
   "keywords": [
     "movies"
@@ -14,9 +15,13 @@
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.1",
     "karma-phantomjs-launcher": "^1.0.4",
-    "phantomjs": "2.1.7"
+    "phantomjs": "2.1.7",
+    "serve": "^6.5.0"
   },
   "dependencies": {
-    
+    "angular": "^1.5.9",
+    "angular-mocks": "^1.5.9",
+    "angular-resource": "^1.5.9",
+    "angular-route": "^1.5.9"
   }
 }
